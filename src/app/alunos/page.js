@@ -16,6 +16,7 @@ export default function page() {
         console.log(alunosLocalStorage)
     }, [])
 
+    //Excluindo Aluno
 
     function excluir(aluno) {
       if(window.confirm(`Deseja Realmente Excluir a Aluno ${aluno.nome}?`)) {
