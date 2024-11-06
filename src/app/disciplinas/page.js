@@ -16,6 +16,8 @@ export default function disciplinaPage() {
    
     }, [])
 
+//excluindo a disciplica
+
     function excluir(disciplina) {
 
         if(window.confirm(`Deseja realmente excluir a Disciplina ${disciplina.nome}?`)) {
