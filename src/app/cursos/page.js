@@ -10,24 +10,24 @@ export default function CursosPage() {
 
   const [cursos, setCursos] = useState([])
 
-  // Faz alguma coisa quando o usuário acessa a tela
+
   useEffect(() => {
-    // Busca a lista do localStorage, se não existir, inicia uma vazia
+
     const cursosLocalStorage = JSON.parse(localStorage.getItem("cursos")) || []
-    // guarda a lista no estado faculdades
+
     setCursos(cursosLocalStorage)
     console.log(cursosLocalStorage)
   }, [])
 
-  // Função para exclusão do item
+
   function excluir(curso) {
-    // Confirma com o usuário a exclusão
+ 
     if (window.confirm(`Deseja realmente excluir o curso ${curso.nome}?`)) {
-      // filtra a lista antiga removando o curso recebido
+
       const novaLista = cursos.filter(item => item.id !== curso.id)
-      // grava no localStorage a nova lista
+  
       localStorage.setItem('cursos', JSON.stringify(novaLista))
-      // grava a nova lista no estado para renderizar na tela
+
       setCursos(novaLista)
       alert("Curso excluído com sucesso!")
     }
@@ -40,7 +40,7 @@ export default function CursosPage() {
         <Button href='/cursos/form'><FaPlusCircle /> Novo</Button>
       </div>
 
-      {/* Tabela com os Cursos */}
+  
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -62,7 +62,7 @@ export default function CursosPage() {
                 <td>{curso.status}</td>
                 <td>{curso.faculdade}</td>
                 <td className='text-center'>
-                  {/* Botões das ações */}
+           
                   <Button className='me-2' href={`/cursos/form?id=${curso.id}`}><FaPen /></Button>
                   <Button variant='danger' onClick={() => excluir(curso)}><FaTrash /></Button>
                 </td>
